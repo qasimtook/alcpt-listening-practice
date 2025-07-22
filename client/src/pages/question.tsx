@@ -158,7 +158,12 @@ export default function QuestionPage() {
               </div>
               <div>
                 <h1 className="text-xl font-medium text-foreground">ALCPT Listening Practice</h1>
-                <p className="text-sm text-muted-foreground">American Language Course Placement Test</p>
+                <p className="text-sm text-muted-foreground">
+                  {question ? 
+                    `Test ${question.testId === 7 ? '065' : question.testId === 8 ? '066' : question.testId === 9 ? '067' : question.testId === 10 ? '068' : question.testId === 11 ? '069' : '070'} - Question ${question.questionIndex}` :
+                    testId ? `Test ${testId} Practice` : "Random Question Practice"
+                  }
+                </p>
               </div>
             </div>
           </div>
