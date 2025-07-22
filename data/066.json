@@ -1,0 +1,42 @@
+[
+  {
+    "question_index": 1,
+    "question_type": "listening",
+    "question_text": "What is the main topic of the lecture?",
+    "correct_answer": "Environmental conservation strategies",
+    "other_options": ["Economic development policies", "Urban planning principles", "Educational reform initiatives"],
+    "explanation": "The professor introduces the lecture by stating it will focus on various approaches to protecting and preserving natural environments."
+  },
+  {
+    "question_index": 2,
+    "question_type": "listening",
+    "question_text": "According to the announcement, when will the library be closed?",
+    "correct_answer": "Next Monday for maintenance",
+    "other_options": ["This weekend for cleaning", "Next Friday for inventory", "All week for renovations"],
+    "explanation": "The librarian clearly announces that the library will be closed next Monday due to scheduled maintenance on the heating system."
+  },
+  {
+    "question_index": 3,
+    "question_type": "listening",
+    "question_text": "What does the woman recommend for the presentation?",
+    "correct_answer": "Adding more visual aids",
+    "other_options": ["Shortening the content", "Speaking more slowly", "Including more statistics"],
+    "explanation": "The woman suggests that charts, graphs, and images would help make the presentation more engaging and easier to understand."
+  },
+  {
+    "question_index": 4,
+    "question_type": "listening",
+    "question_text": "What problem is the man having with his computer?",
+    "correct_answer": "It won't connect to the internet",
+    "other_options": ["The screen is too dim", "It's running very slowly", "The keyboard isn't working"],
+    "explanation": "The man explicitly states that he can't access any websites or send emails because his computer won't connect to the network."
+  },
+  {
+    "question_index": 5,
+    "question_type": "listening",
+    "question_text": "What is the purpose of the phone call?",
+    "correct_answer": "To confirm a doctor's appointment",
+    "other_options": ["To schedule a new appointment", "To cancel an existing appointment", "To change appointment time"],
+    "explanation": "The caller mentions they want to verify that their appointment for Thursday at 3 PM is still scheduled as planned."
+  }
+]

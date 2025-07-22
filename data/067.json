@@ -1,0 +1,34 @@
+[
+  {
+    "question_index": 1,
+    "question_type": "listening",
+    "question_text": "What does the man plan to do this weekend?",
+    "correct_answer": "Visit his family",
+    "other_options": ["Go to the movies", "Work on a project", "Travel to another city"],
+    "explanation": "The man mentions he's looking forward to seeing his parents and siblings who live in his hometown, indicating a family visit."
+  },
+  {
+    "question_index": 2,
+    "question_type": "listening",
+    "question_text": "Why is the woman upset?",
+    "correct_answer": "Her flight was cancelled",
+    "other_options": ["She lost her luggage", "The hotel overbooked", "Traffic made her late"],
+    "explanation": "The woman explains her frustration about the airline cancelling her flight due to weather conditions, forcing her to reschedule her trip."
+  },
+  {
+    "question_index": 3,
+    "question_type": "listening",
+    "question_text": "What does the professor assign for homework?",
+    "correct_answer": "Read chapter 7 and answer questions",
+    "other_options": ["Write a research paper", "Prepare a group presentation", "Complete the lab experiment"],
+    "explanation": "The professor specifically instructs students to read the assigned chapter and complete the comprehension questions at the end."
+  },
+  {
+    "question_index": 4,
+    "question_type": "listening",
+    "question_text": "Where did the conversation most likely take place?",
+    "correct_answer": "At a restaurant",
+    "other_options": ["In a grocery store", "At a friend's house", "In an office break room"],
+    "explanation": "The discussion about menu items, ordering, and the waitress taking their order clearly indicates a restaurant setting."
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "question_index": 1,
+    "question_type": "listening",
+    "question_text": "Listen to the conversation. What time does the meeting start?",
+    "correct_answer": "2:00 PM",
+    "other_options": ["2:30 PM", "3:00 PM", "1:30 PM"],
+    "explanation": "In the conversation, the speaker clearly states 'The meeting will begin at two o'clock sharp.' This directly indicates that the meeting starts at 2:00 PM."
+  },
+  {
+    "question_index": 2,
+    "question_type": "listening",
+    "question_text": "What is the woman's main concern about the project?",
+    "correct_answer": "The deadline is too tight",
+    "other_options": ["The budget is insufficient", "The team is too small", "The scope is unclear"],
+    "explanation": "The woman emphasizes her worry about completing the project on time, specifically mentioning that the timeline seems unrealistic given the project's complexity."
+  },
+  {
+    "question_index": 3,
+    "question_type": "listening",
+    "question_text": "Where does the man suggest they meet for lunch?",
+    "correct_answer": "The Italian restaurant downtown",
+    "other_options": ["The cafeteria", "The Chinese place", "The sandwich shop"],
+    "explanation": "The man specifically mentions 'that new Italian place downtown' as his preference for their lunch meeting location."
+  },
+  {
+    "question_index": 4,
+    "question_type": "listening",
+    "question_text": "What is the weather forecast for tomorrow?",
+    "correct_answer": "Partly cloudy with a chance of rain",
+    "other_options": ["Sunny and warm", "Heavy thunderstorms", "Snow and cold"],
+    "explanation": "The weather report mentions scattered clouds throughout the day with a 40% chance of afternoon showers."
+  },
+  {
+    "question_index": 5,
+    "question_type": "listening",
+    "question_text": "Why is the customer calling the store?",
+    "correct_answer": "To return a defective product",
+    "other_options": ["To place a new order", "To check store hours", "To inquire about a sale"],
+    "explanation": "The customer explains that the item they purchased last week is not working properly and they would like to return it for a refund or exchange."
+  }
+]
