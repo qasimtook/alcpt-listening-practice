@@ -29,7 +29,22 @@ export default function QuestionPage() {
 
   // Fetch random question or specific question
   const { data: question, isLoading, refetch } = useQuery<Question>({
-    queryKey: questionId ? ["/api/questions", questionId] : ["/api/question", testId?.toString()],
+    queryKey: questionId ? ["/api/questions", questionId] : testId ? ["/api/question", { testId }] : ["/api/question"],
+    queryFn: async () => {
+      if (questionId) {
+        const response = await fetch(`/api/questions/${questionId}`);
+        if (!response.ok) throw new Error("Failed to fetch question");
+        return response.json();
+      } else if (testId) {
+        const response = await fetch(`/api/question?testId=${testId}`);
+        if (!response.ok) throw new Error("Failed to fetch question");
+        return response.json();
+      } else {
+        const response = await fetch("/api/question");
+        if (!response.ok) throw new Error("Failed to fetch question");
+        return response.json();
+      }
+    },
     enabled: true,
   });
 
