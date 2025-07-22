@@ -1,0 +1,34 @@
+[
+  {
+    "question_index": 1,
+    "question_type": "listening",
+    "question_text": "What time does the train depart?",
+    "correct_answer": "6:15 PM",
+    "other_options": ["6:50 PM", "5:45 PM", "7:00 PM"],
+    "explanation": "The announcement clearly states that the evening express train to Chicago departs at six fifteen in the evening."
+  },
+  {
+    "question_index": 2,
+    "question_type": "listening",
+    "question_text": "Why did the man miss the meeting?",
+    "correct_answer": "His car broke down",
+    "other_options": ["He forgot about it", "He was stuck in traffic", "He had another appointment"],
+    "explanation": "The man explains that his car had engine trouble on the way to the office, causing him to miss the important meeting."
+  },
+  {
+    "question_index": 3,
+    "question_type": "listening",
+    "question_text": "What is the weather forecast for the weekend?",
+    "correct_answer": "Sunny with mild temperatures",
+    "other_options": ["Rainy and cold", "Windy with storms", "Cloudy but warm"],
+    "explanation": "The meteorologist predicts clear skies and pleasant temperatures in the mid-70s for both Saturday and Sunday."
+  },
+  {
+    "question_index": 4,
+    "question_type": "listening",
+    "question_text": "Where does the conversation take place?",
+    "correct_answer": "At a bank",
+    "other_options": ["At a post office", "At a grocery store", "At a gas station"],
+    "explanation": "The discussion about account balances, deposits, and loan applications clearly indicates this conversation is happening at a bank."
+  }
+]

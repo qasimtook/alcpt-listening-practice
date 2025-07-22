@@ -1,0 +1,42 @@
+[
+  {
+    "question_index": 1,
+    "question_type": "listening",
+    "question_text": "What is the woman's profession?",
+    "correct_answer": "She is a teacher",
+    "other_options": ["She is a doctor", "She is a lawyer", "She is an engineer"],
+    "explanation": "The woman mentions she teaches at the local elementary school, clearly indicating her profession as a teacher."
+  },
+  {
+    "question_index": 2,
+    "question_type": "listening",
+    "question_text": "When will the package be delivered?",
+    "correct_answer": "Tomorrow morning",
+    "other_options": ["This afternoon", "Next week", "In two days"],
+    "explanation": "The delivery service confirms that the package will arrive tomorrow morning before 11 AM."
+  },
+  {
+    "question_index": 3,
+    "question_type": "listening",
+    "question_text": "What is the main reason for the delay?",
+    "correct_answer": "Heavy traffic on the highway",
+    "other_options": ["Bad weather conditions", "Mechanical problems", "Construction work"],
+    "explanation": "The speaker explains that an accident on the highway caused significant traffic delays, making them late for the meeting."
+  },
+  {
+    "question_index": 4,
+    "question_type": "listening",
+    "question_text": "How much does the parking cost per hour?",
+    "correct_answer": "$3.50 per hour",
+    "other_options": ["$2.00 per hour", "$5.00 per hour", "$4.25 per hour"],
+    "explanation": "The parking attendant clearly states that parking costs three dollars and fifty cents per hour."
+  },
+  {
+    "question_index": 5,
+    "question_type": "listening",
+    "question_text": "What does the customer want to exchange?",
+    "correct_answer": "A blue sweater for a red one",
+    "other_options": ["A shirt for a jacket", "Shoes for boots", "A dress for a skirt"],
+    "explanation": "The customer explains that she bought a blue sweater but would prefer to exchange it for the same style in red."
+  }
+]
