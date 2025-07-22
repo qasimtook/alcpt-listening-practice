@@ -29,7 +29,7 @@ Preferred communication style: Simple, everyday language.
 - **Connection**: Replit PostgreSQL database with connection pooling
 - **Schema Management**: Drizzle Kit for migrations and schema management
 - **File Storage**: Local filesystem for temporary audio files
-- **Current Data**: 5 tests with 119 total questions stored in database
+- **Current Data**: 6 tests with 583 total questions stored in database
 - **Storage Type**: Migrated from in-memory to persistent PostgreSQL storage (Jan 2024)
 
 ## Key Components
