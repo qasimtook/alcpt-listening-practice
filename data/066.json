@@ -1,42 +1,1091 @@
 [
-  {
-    "question_index": 1,
-    "question_type": "listening",
-    "question_text": "What is the main topic of the lecture?",
-    "correct_answer": "Environmental conservation strategies",
-    "other_options": ["Economic development policies", "Urban planning principles", "Educational reform initiatives"],
-    "explanation": "The professor introduces the lecture by stating it will focus on various approaches to protecting and preserving natural environments."
-  },
-  {
-    "question_index": 2,
-    "question_type": "listening",
-    "question_text": "According to the announcement, when will the library be closed?",
-    "correct_answer": "Next Monday for maintenance",
-    "other_options": ["This weekend for cleaning", "Next Friday for inventory", "All week for renovations"],
-    "explanation": "The librarian clearly announces that the library will be closed next Monday due to scheduled maintenance on the heating system."
-  },
-  {
-    "question_index": 3,
-    "question_type": "listening",
-    "question_text": "What does the woman recommend for the presentation?",
-    "correct_answer": "Adding more visual aids",
-    "other_options": ["Shortening the content", "Speaking more slowly", "Including more statistics"],
-    "explanation": "The woman suggests that charts, graphs, and images would help make the presentation more engaging and easier to understand."
-  },
-  {
-    "question_index": 4,
-    "question_type": "listening",
-    "question_text": "What problem is the man having with his computer?",
-    "correct_answer": "It won't connect to the internet",
-    "other_options": ["The screen is too dim", "It's running very slowly", "The keyboard isn't working"],
-    "explanation": "The man explicitly states that he can't access any websites or send emails because his computer won't connect to the network."
-  },
-  {
-    "question_index": 5,
-    "question_type": "listening",
-    "question_text": "What is the purpose of the phone call?",
-    "correct_answer": "To confirm a doctor's appointment",
-    "other_options": ["To schedule a new appointment", "To cancel an existing appointment", "To change appointment time"],
-    "explanation": "The caller mentions they want to verify that their appointment for Thursday at 3 PM is still scheduled as planned."
-  }
+    {
+        "question_index": 1,
+        "question_text": "What did you think of the music?",
+        "correct_answer": "It had a very pleasing melody.",
+        "other_options": [
+            "It was cooked just long enough.",
+            "It was just the right size.",
+            "It had an interesting shape."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 2,
+        "question_text": "He’s going to the grocery store. What will he buy?",
+        "correct_answer": "milk and bread",
+        "other_options": [
+            "posts and wires",
+            "chairs and tables",
+            "nails and lumber"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 3,
+        "question_text": "Each night I read fifty pages in my book. When do I read my book?",
+        "correct_answer": "every night",
+        "other_options": [
+            "every other night",
+            "twice a week",
+            "once a week"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 4,
+        "question_text": "Jackson cooks all our meals for us. What does he do?",
+        "correct_answer": "He prepares the food.",
+        "other_options": [
+            "He buys the food.",
+            "He eats the food.",
+            "He sells the food."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 5,
+        "question_text": "This is a manufacturing town. Where do most of the people work?",
+        "correct_answer": "in a factory",
+        "other_options": [
+            "on a farm",
+            "in a hotel",
+            "in a restaurant"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 6,
+        "question_text": "The sergeant said smoking is allowed in this room. What did he say?",
+        "correct_answer": "You may smoke in this room.",
+        "other_options": [
+            "You can speak in this room.",
+            "You can have your meals in this room.",
+            "You can drink in this room."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 7,
+        "question_text": "Thad’s feeling pretty good. How does he feel?",
+        "correct_answer": "fine",
+        "other_options": [
+            "sleepy",
+            "hungry",
+            "hot"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 8,
+        "question_text": "The meal was completed.",
+        "correct_answer": "It was finished.",
+        "other_options": [
+            "It was formal.",
+            "It was canceled.",
+            "It was delicious."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 9,
+        "question_text": "He was a passenger on that bus.",
+        "correct_answer": "He rode on it.",
+        "other_options": [
+            "He cleaned it.",
+            "He worked on it.",
+            "He polished it."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 10,
+        "question_text": "School starts at oh nine hundred and Marie is always on time.",
+        "correct_answer": "She always gets there on time.",
+        "other_options": [
+            "She always goes there by bus.",
+            "She always takes her time.",
+            "She always has her watch."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 11,
+        "question_text": "Where are you going?",
+        "correct_answer": "to England",
+        "other_options": [
+            "because of my job",
+            "about two months",
+            "by plane"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 12,
+        "question_text": "The weather is getting cooler. What’s happening to the weather?",
+        "correct_answer": "The temperature is going down.",
+        "other_options": [
+            "It is getting humid.",
+            "It is clearing up.",
+            "It is getting cloudy outsides."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 13,
+        "question_text": "What is one of the functions of the electrical system in a car?",
+        "correct_answer": "to start the car",
+        "other_options": [
+            "to make the car go faster",
+            "to release exhaust",
+            "to steer the car"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 14,
+        "question_text": "What are coins used for?",
+        "correct_answer": "to buy things",
+        "other_options": [
+            "to paint things",
+            "to hold things",
+            "to pack things"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 15,
+        "question_text": "It rained during the meal. When did it rain?",
+        "correct_answer": "while we were eating",
+        "other_options": [
+            "before we ate",
+            "after we ate",
+            "while we were cleaning up"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 16,
+        "question_text": "Mr. Smith wrote a personal letter. To whom did he write?",
+        "correct_answer": "to his sister",
+        "other_options": [
+            "to his government",
+            "to the airlines",
+            "to the factory"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 17,
+        "question_text": "Why couldn’t the pilot see the runway?",
+        "correct_answer": "Visibility was very poor.",
+        "other_options": [
+            "It was a nice day.",
+            "The pilot needed goggles.",
+            "The pilot was in good shape."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 18,
+        "question_text": "The student was looking at the rainbow. What was he looking at?",
+        "correct_answer": "colors in the sky",
+        "other_options": [
+            "a drop of water",
+            "a waterproof coat",
+            "a stub from a ticket"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 19,
+        "question_text": "The doctor told him to open his mouth. What did he want to check?",
+        "correct_answer": "his tongue",
+        "other_options": [
+            "his nose",
+            "his chin",
+            "his cheek"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 20,
+        "question_text": "They looked at the scenery for a long time. What were they admiring?",
+        "correct_answer": "the view",
+        "other_options": [
+            "the sound",
+            "the smell",
+            "the touch"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 21,
+        "question_text": "During a telephone conversation, the commander asks you to hold the line. What does he\nwant you to do?",
+        "correct_answer": "wait a moment",
+        "other_options": [
+            "pick up the cord",
+            "keep talking",
+            "hang up the receiver"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 22,
+        "question_text": "The tour is next week but you must pay in advance. When must you pay?",
+        "correct_answer": "before you go",
+        "other_options": [
+            "on this trip",
+            "as you leave",
+            "in cash"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 23,
+        "question_text": "I have to talk to Captain Smith.",
+        "correct_answer": "I must talk to him.",
+        "other_options": [
+            "I won’t talk to him.",
+            "I can talk to him now.",
+            "I ought to talk to him."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 24,
+        "question_text": "Peter is weak.",
+        "correct_answer": "He is not strong.",
+        "other_options": [
+            "He is not tall.",
+            "He is not handsome.",
+            "He is not intelligent."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 25,
+        "question_text": "Sally took her car to work today.",
+        "correct_answer": "She went by automobile.",
+        "other_options": [
+            "She went by bus.",
+            "She went by train.",
+            "She went by helicopter."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 26,
+        "question_text": "Matilda hates Arnold.",
+        "correct_answer": "Matilda doesn’t like Arnold.",
+        "other_options": [
+            "Matilda doesn’t know Arnold.",
+            "Matilda doesn’t obey Arnold.",
+            "Matilda doesn’t please Arnold."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 27,
+        "question_text": "The people cannot hold out much longer against the powerful storm.",
+        "correct_answer": "The people can’t resist much longer.",
+        "other_options": [
+            "The people will resist much longer.",
+            "The people are more powerful than the storm.",
+            "The storm is no longer powerful."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 28,
+        "question_text": "Why do some women wear perfume?  It ____ good.",
+        "correct_answer": "smells",
+        "other_options": [
+            "looks",
+            "tastes",
+            "sounds"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 29,
+        "question_text": "My friend took a basic course at the university. What did he study?",
+        "correct_answer": "a beginner’s course",
+        "other_options": [
+            "a difficult course",
+            "his last course",
+            "a special course"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 30,
+        "question_text": "The original report was favorable. Which report was favorable?",
+        "correct_answer": "the first",
+        "other_options": [
+            "the planning",
+            "the longest",
+            "the summary"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 31,
+        "question_text": "George always asks a clerk to get the item he wants. Who does George ask?",
+        "correct_answer": "a store worker",
+        "other_options": [
+            "the owner",
+            "a friend",
+            "the store manager"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 32,
+        "question_text": "Is this a private beach?",
+        "correct_answer": "Yes, it is owned by Mr. Collins.",
+        "other_options": [
+            "Yes, the public may come.",
+            "Yes, it is famous.",
+            "Yes, it is sandy."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 33,
+        "question_text": "I have a request to make. What am I going to do?",
+        "correct_answer": "Ask for something",
+        "other_options": [
+            "write a letter",
+            "make some plans",
+            "buy something"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 34,
+        "question_text": "He was looking for a familiar landmark. What was he looking for?",
+        "correct_answer": "a landmark he could recognize",
+        "other_options": [
+            "a landmark that was large",
+            "an odd-shaped landmark",
+            "an unusual landmark"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 35,
+        "question_text": "Tom is going to observe the carpenters. What is he going to do?",
+        "correct_answer": "watch them",
+        "other_options": [
+            "pay them",
+            "help them",
+            "direct them"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 36,
+        "question_text": "Where are valleys usually found?",
+        "correct_answer": "in mountain regions",
+        "other_options": [
+            "in a factory",
+            "in beach areas",
+            "in a city"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 37,
+        "question_text": "In his haste, he forgot to turn off the stove before he left the house. What happened to his\nhouse?",
+        "correct_answer": "It burned down.",
+        "other_options": [
+            "It got cold.",
+            "It was painted.",
+            "It was constructed."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 38,
+        "question_text": "The student found out about the trip yesterday. What happened yesterday?",
+        "correct_answer": "The student learned about the trip.",
+        "other_options": [
+            "The student forgot about the trip.",
+            "The student was worried about the trip.",
+            "The student didn’t think about the trip."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 39,
+        "question_text": "Joe’s answer corresponds with mine. What can you say about Joe’s answer?",
+        "correct_answer": "It agrees with mine.",
+        "other_options": [
+            "It explains mine.",
+            "It differs from mine.",
+            "It accounts for mine."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 40,
+        "question_text": "Mr. Smith will train Lois for that job.",
+        "correct_answer": "He will teach her to do it.",
+        "other_options": [
+            "He will thank her for doing it.",
+            "He will take her to it.",
+            "He will stop her from doing it."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 41,
+        "question_text": "Mrs. Homer served us dinner.",
+        "correct_answer": "She brought our dinner to the table.",
+        "other_options": [
+            "She ordered dinner for us.",
+            "She took us out to dinner.",
+            "She bought the food for our dinner."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 42,
+        "question_text": "She slipped on the sidewalk.",
+        "correct_answer": "The walk was icy.",
+        "other_options": [
+            "The walk was clean.",
+            "The walk was level.",
+            "The walk was paved."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 43,
+        "question_text": "David’s car stalled right in the middle of the intersection.",
+        "correct_answer": "It stopped running.",
+        "other_options": [
+            "It went out of control.",
+            "It turned over.",
+            "It failed to stop."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 44,
+        "question_text": "The pilot glanced at the instrument panel.",
+        "correct_answer": "He looked at the panel.",
+        "other_options": [
+            "He reached for the panel.",
+            "He pulled at the panel.",
+            "He studied the panel."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 45,
+        "question_text": "The dentist will give you an anesthetic.",
+        "correct_answer": "He will deaden the pain.",
+        "other_options": [
+            "He will charge a lot.",
+            "He will send a bill.",
+            "He will check your mouth."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 46,
+        "question_text": "Tom says that a great deal of cattle raising is carried on in the Midwest. How many cattle are\nraised there?",
+        "correct_answer": "a large amount",
+        "other_options": [
+            "different kinds",
+            "a special kind",
+            "very low cost"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 47,
+        "question_text": "Mary told Bob that she had heard the record at home. What did Mary say?",
+        "correct_answer": "She listened to it.",
+        "other_options": [
+            "She forgot it.",
+            "She broke it.",
+            "She made it."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 48,
+        "question_text": "Yesterday the wind came from the south and it was warm. Today the wind is from the north\nand it is cold. Why is it cold today?",
+        "correct_answer": "because the wind shifted",
+        "other_options": [
+            "because the weather is mild",
+            "because the wind died down",
+            "because a storm is coming"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 49,
+        "question_text": "Someone walked away with our new book. What happened to the book?",
+        "correct_answer": "It was stolen.",
+        "other_options": [
+            "It was printed.",
+            "It was sold.",
+            "It was signed."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 50,
+        "question_text": "Rush this order through.",
+        "correct_answer": "Get it out in a hurry.",
+        "other_options": [
+            "Examine it carefully.",
+            "Mail it on a routine basis.",
+            "Check to see if it is all there."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 51,
+        "question_text": "That table is not level.",
+        "correct_answer": "One end is lower than the other.",
+        "other_options": [
+            "It isn’t large enough.",
+            "It isn’t suitable.",
+            "One side is longer than the other."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 52,
+        "question_text": "I want you to disregard that letter.",
+        "correct_answer": "Pay no attention to it.",
+        "other_options": [
+            "Do not destroy it.",
+            "Read it immediately.",
+            "Answer it right now."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 53,
+        "question_text": "Be careful or you may trigger your rifle by accident.",
+        "correct_answer": "You may fire it.",
+        "other_options": [
+            "You may drop it.",
+            "You may open it up.",
+            "You may shove it around."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 54,
+        "question_text": "What are you going to use that trailer for?",
+        "correct_answer": "to haul freight",
+        "other_options": [
+            "to drain the field",
+            "to pump water",
+            "to spray paint"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 55,
+        "question_text": "Each winter the pond dries up.\nIn the winter the pond _____.",
+        "correct_answer": "has no water",
+        "other_options": [
+            "freezes over",
+            "has no fish",
+            "overflows"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 56,
+        "question_text": "The new movie has angered a lot of people. It is _____.",
+        "correct_answer": "controversial",
+        "other_options": [
+            "excellent",
+            "very funny",
+            "very sad"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 57,
+        "question_text": "M: How did the party turn out?\nW: Nobody came. How many people were at the party?",
+        "correct_answer": "none",
+        "other_options": [
+            "some",
+            "a few",
+            "many"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 58,
+        "question_text": "W: What are you going to do?\nM: I’m going to shave. He will use a _____.",
+        "correct_answer": "razor",
+        "other_options": [
+            "fork",
+            "pen",
+            "truck"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 59,
+        "question_text": "M: Shall I tell you a story?\nW: Yes, but tell me one I can believe.What kind of story does the woman want to hear?",
+        "correct_answer": "one that she thinks is true",
+        "other_options": [
+            "one that’s not very long",
+            "one that she has heard before",
+            "one that’s not very old"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 60,
+        "question_text": "M: John is going to run the new machine.  W: Has he read the instructions?  What does the\nwoman want to know?",
+        "correct_answer": "if John knows how to run the machine",
+        "other_options": [
+            "why John is running a machine instead of reading",
+            "why John is talking to the teacher",
+            "if John is strong enough to run the machine"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 61,
+        "question_text": "M: What happened to Angela?  W: She twisted her knee.  What did the woman say about\nAngela?",
+        "correct_answer": "She hurt her leg.",
+        "other_options": [
+            "She went to see a friend.",
+            "She broke a dish.",
+            "She opened a bottle."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 62,
+        "question_text": "M: How did you do on those ten questions?\nW: I got two of them correct.\nWhat did the woman say?",
+        "correct_answer": "She gave the right answer to two questions.",
+        "other_options": [
+            "She answered two questions.",
+            "She gave the wrong answer to two questions.",
+            "She left out two questions."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 63,
+        "question_text": "W: You don’t care about me anymore.\nM: Yes, I do.\nWhat is the woman’s complaint?",
+        "correct_answer": "The man isn’t concerned about her.",
+        "other_options": [
+            "The man isn’t cheerful.",
+            "The man isn’t married to her.",
+            "The man isn’t careful."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 64,
+        "question_text": "W: Flight fifty-one to Los Angeles is leaving at eight in the morning.\nM: Is my ticket confirmed?\nW: Yes, it is.\nWhat do we learn from this conversation?",
+        "correct_answer": "The man has a seat reserved.",
+        "other_options": [
+            "The man doesn’t have reservations.",
+            "The departure time isn’t at eight.",
+            "The plane left Los Angeles at eight."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 65,
+        "question_text": "W: What’s the problem with Jeanne?\nM: She just can’t express herself.\nWhat did the man mean?",
+        "correct_answer": "She can’t say what she means.",
+        "other_options": [
+            "She can’t remember what she does.",
+            "She can’t decide what she wants.",
+            "She can’t apply what she knows."
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 66,
+        "question_text": "W: How did you like the movie?\nM: I thought the movie was quite bewildering.\nWhat did he think of the ending?\nIt was _____.",
+        "correct_answer": "confusing",
+        "other_options": [
+            "interesting",
+            "suspenseful",
+            "understandable"
+        ],
+        "question_type": "listening"
+    },
+    {
+        "question_index": 67,
+        "question_text": "John’s favorite sport is _____.",
+        "correct_answer": "fishing",
+        "other_options": [
+            "fish",
+            "fished",
+            "of fishing"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 68,
+        "question_text": "I enjoy going to the theater with _____.",
+        "correct_answer": "them",
+        "other_options": [
+            "she",
+            "he",
+            "herself"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 69,
+        "question_text": "He flew farther _____ I.",
+        "correct_answer": "than",
+        "other_options": [
+            "nor",
+            "that",
+            "so"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 70,
+        "question_text": "This book is the same as that one.",
+        "correct_answer": "identical to",
+        "other_options": [
+            "different from",
+            "next to",
+            "near"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 71,
+        "question_text": "The river has its origin in Minnesota.",
+        "correct_answer": "beginning",
+        "other_options": [
+            "waterfalls",
+            "ports",
+            "end"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 72,
+        "question_text": "Joe did not wear a tie or jacket with that ______.",
+        "correct_answer": "shirt",
+        "other_options": [
+            "shoe",
+            "skirt",
+            "scarf"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 73,
+        "question_text": "Did you notify the doctor?",
+        "correct_answer": "inform",
+        "other_options": [
+            "see",
+            "return to",
+            "find"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 74,
+        "question_text": "Joe: Could they have done the shopping?\nSue: No, _____.",
+        "correct_answer": "they couldn’t have done it",
+        "other_options": [
+            "they could have done it",
+            "they couldn’t have did it",
+            "they couldn’t have doing it"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 75,
+        "question_text": "I am studying English _____ the language school.",
+        "correct_answer": "at",
+        "other_options": [
+            "to",
+            "on",
+            "from"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 76,
+        "question_text": "The book _____ her by her cousin.",
+        "correct_answer": "was given",
+        "other_options": [
+            "are given",
+            "is give",
+            "will give"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 77,
+        "question_text": "Select the correct sentence.",
+        "correct_answer": "The teacher went quickly into the school at 8:30 a.m.",
+        "other_options": [
+            "The teacher into the school went quickly at 8:30 a.m.",
+            "The teacher went quickly at 8:30 a.m. into the school.",
+            "Into the school the teacher went quickly at 8:30 a.m."
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 78,
+        "question_text": "The planned activities for the week include swimming and running.",
+        "correct_answer": "They plan to have swimming and running.",
+        "other_options": [
+            "They forgot to plan for swimming and running.",
+            "They might still plan some swimming and running.",
+            "It’s important to plan for swimming and running."
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 79,
+        "question_text": "The astronauts descended to earth. They came _____.",
+        "correct_answer": "down",
+        "other_options": [
+            "around",
+            "apart",
+            "through"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 80,
+        "question_text": "The commander could not ensure promotions for his men.",
+        "correct_answer": "guarantee",
+        "other_options": [
+            "arrange",
+            "justify",
+            "falsify"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 81,
+        "question_text": "This pill is coated with sugar.",
+        "correct_answer": "covered",
+        "other_options": [
+            "counted",
+            "made",
+            "taken"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 82,
+        "question_text": "Miss Garcia did the job properly.",
+        "correct_answer": "in the right way",
+        "other_options": [
+            "with the wrong tools",
+            "with some other people",
+            "in a short time"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 83,
+        "question_text": "Bob challenged the champion. Bob wanted to _____.",
+        "correct_answer": "fight him",
+        "other_options": [
+            "call on him",
+            "take his picture",
+            "write to him"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 84,
+        "question_text": "_____ pants need to be cleaned.",
+        "correct_answer": "These",
+        "other_options": [
+            "This",
+            "Any",
+            "Such"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 85,
+        "question_text": "The students _____ soon; otherwise, they will be late for the movie.",
+        "correct_answer": "should arrive",
+        "other_options": [
+            "can arrive",
+            "were arriving",
+            "have arrived"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 86,
+        "question_text": "The wind has _____ from the west all day.",
+        "correct_answer": "been blowing",
+        "other_options": [
+            "blowing",
+            "blow",
+            "been blown"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 87,
+        "question_text": "Select the correct sentence.",
+        "correct_answer": "The best way to learn a language is to use it.",
+        "other_options": [
+            "The language you must use to learn it a best way.",
+            "The best way is to use it to learn a language.",
+            "To learn the best way the language you must use it."
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 88,
+        "question_text": "When you go to the gymnasium to work out, you need to take your own combination lock with\nyou along with your gym clothes and towel. The facilities are excellent and well designed.\nHowever, the gym is a high-theft area and your things must be secured even when you are\ntaking a shower.\nAccording to the paragraph, you should _____.",
+        "correct_answer": "lock up your things at the gymnasium",
+        "other_options": [
+            "maintain your physical fitness",
+            "report thieves caught in the gym",
+            "utilize the gym’s excellent facilities"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 89,
+        "question_text": "Occasionally a language will not have a word to describe a certain occurrence or new product.\nIn such cases a word is often borrowed from another language. This borrowing is particularly\ncommon with scientific and technical terms.\nAccording to this paragraph, _____.",
+        "correct_answer": "new words can be added to languages by borrowing",
+        "other_options": [
+            "a language may drop technical terms",
+            "all languages have words to describe certain occurrences",
+            "borrowing scientific terms is not common"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 90,
+        "question_text": "The men decided to split the money.",
+        "correct_answer": "divide",
+        "other_options": [
+            "repay",
+            "increase",
+            "count"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 91,
+        "question_text": "The entrance was narrow. It was _____.",
+        "correct_answer": "not wide",
+        "other_options": [
+            "not high",
+            "loose",
+            "crowded"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 92,
+        "question_text": "We searched for him throughout the city.",
+        "correct_answer": "all over",
+        "other_options": [
+            "in part of",
+            "outside of",
+            "beside"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 93,
+        "question_text": "Before buying that car, you had better _____.",
+        "correct_answer": "try it out",
+        "other_options": [
+            "carry it out",
+            "put it on",
+            "try it on"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 94,
+        "question_text": "Has anybody met the _____ scholar who is visiting our department today?",
+        "correct_answer": "learned",
+        "other_options": [
+            "had learned",
+            "learns",
+            "has learned"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 95,
+        "question_text": "Gilbert and Douglas _____ their lessons.",
+        "correct_answer": "study",
+        "other_options": [
+            "are studied",
+            "were studied",
+            "studying"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 96,
+        "question_text": "_____ Paul’s request for leave was in poor judgment.",
+        "correct_answer": "To deny",
+        "other_options": [
+            "Deny",
+            "Denies",
+            "Should deny"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 97,
+        "question_text": "The play has had an awfully long run.",
+        "correct_answer": "a very",
+        "other_options": [
+            "an unsuccessful",
+            "an exciting",
+            "a happy"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 98,
+        "question_text": "I have a loose _____ in this tooth.",
+        "correct_answer": "filling",
+        "other_options": [
+            "cavity",
+            "gum",
+            "toothache"
+        ],
+        "question_type": "reading"
+    },
+    {
+        "question_index": 99,
+        "question_text": "Joe couldn’t see the car beside him because his _____ vision was poor.",
+        "correct_answer": "peripheral",
+        "other_options": [
+            "latent",
+            "rearview",
+            "occluded"
+        ],
+        "question_type": "reading"
+    }
 ]

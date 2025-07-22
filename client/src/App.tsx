@@ -7,15 +7,25 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import TestSelection from "@/pages/test-selection";
 import Question from "@/pages/question";
+import Landing from "@/pages/landing";
+import { useAuth } from "@/hooks/useAuth";
 
 function Router() {
+  const { isAuthenticated, isLoading } = useAuth();
+
   return (
     <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/tests" component={TestSelection} />
-      <Route path="/tests/:testId" component={TestSelection} />
-      <Route path="/question" component={Question} />
-      <Route path="/question/:questionId" component={Question} />
+      {isLoading || !isAuthenticated ? (
+        <Route path="/" component={Landing} />
+      ) : (
+        <>
+          <Route path="/" component={Home} />
+          <Route path="/tests" component={TestSelection} />
+          <Route path="/tests/:testId" component={TestSelection} />
+          <Route path="/question" component={Question} />
+          <Route path="/question/:questionId" component={Question} />
+        </>
+      )}
       <Route component={NotFound} />
     </Switch>
   );

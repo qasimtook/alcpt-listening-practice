@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { setupAuth, isAuthenticated } from "./replitAuth";
 import { generateAudioFromText } from "./services/openai";
 import { formatQuestionText, generateQuestionExplanation } from "./services/gemini";
 import { answerSubmissionSchema } from "@shared/schema";
@@ -9,8 +10,23 @@ import * as path from "path";
 import express from "express";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Auth middleware
+  await setupAuth(app);
+
   // Serve audio files
   app.use('/api/audio', express.static(path.join(process.cwd(), 'temp_audio')));
+
+  // Auth routes
+  app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const user = await storage.getUser(userId);
+      res.json(user);
+    } catch (error) {
+      console.error("Error fetching user:", error);
+      res.status(500).json({ message: "Failed to fetch user" });
+    }
+  });
 
   // Get all available tests
   app.get("/api/tests", async (req, res) => {
@@ -125,7 +141,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Submit an answer and get feedback
-  app.post("/api/questions/:id/submit", async (req, res) => {
+  app.post("/api/questions/:id/submit", isAuthenticated, async (req: any, res) => {
     try {
       const questionId = Number(req.params.id);
       const question = await storage.getQuestionById(questionId);
@@ -151,7 +167,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       // Save user progress
+      const userId = req.user.claims.sub;
       await storage.saveUserProgress({
+        userId,
         testId: question.testId,
         questionId: question.id,
         userAnswer: submission.selectedAnswer,
@@ -208,14 +226,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Get user progress for a test
-  app.get("/api/tests/:testId/progress", async (req, res) => {
+  app.get("/api/tests/:testId/progress", isAuthenticated, async (req: any, res) => {
     try {
       const testId = Number(req.params.testId);
+      const userId = req.user.claims.sub;
       const progress = await storage.getUserProgressByTest(testId);
-      res.json(progress);
+      // Filter progress for current user
+      const userProgress = progress.filter(p => p.userId === userId);
+      res.json(userProgress);
     } catch (error) {
       console.error("Error fetching progress:", error);
       res.status(500).json({ message: "Failed to fetch progress" });
+    }
+  });
+
+  // Get all user progress
+  app.get("/api/user/progress", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const progress = await storage.getUserProgressByUser(userId);
+      res.json(progress);
+    } catch (error) {
+      console.error("Error fetching user progress:", error);
+      res.status(500).json({ message: "Failed to fetch user progress" });
     }
   });
 

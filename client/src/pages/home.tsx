@@ -1,10 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLocation } from "wouter";
-import { Headphones, Volume2, ChartLine, Brain } from "lucide-react";
+import { Headphones, Volume2, ChartLine, Brain, LogOut } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function Home() {
   const [, setLocation] = useLocation();
+  const { user } = useAuth();
+
+  const handleLogout = () => {
+    window.location.href = "/api/logout";
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -21,17 +27,36 @@ export default function Home() {
                 <p className="text-sm text-muted-foreground">American Language Course Placement Test</p>
               </div>
             </div>
-            <nav className="hidden md:flex items-center space-x-6">
-              <button className="text-muted-foreground hover:text-primary transition-colors">Home</button>
-              <button 
-                onClick={() => setLocation("/tests")}
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                Tests
-              </button>
-              <button className="text-muted-foreground hover:text-primary transition-colors">Progress</button>
-              <button className="text-muted-foreground hover:text-primary transition-colors">Help</button>
-            </nav>
+            <div className="flex items-center space-x-4">
+              <nav className="hidden md:flex items-center space-x-6">
+                <button className="text-muted-foreground hover:text-primary transition-colors">Home</button>
+                <button 
+                  onClick={() => setLocation("/tests")}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Tests
+                </button>
+                <button className="text-muted-foreground hover:text-primary transition-colors">Progress</button>
+                <button className="text-muted-foreground hover:text-primary transition-colors">Help</button>
+              </nav>
+              
+              {user && (
+                <div className="flex items-center space-x-3">
+                  <span className="text-sm text-muted-foreground">
+                    Welcome, {user.firstName || user.email}
+                  </span>
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={handleLogout}
+                    className="flex items-center space-x-2"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    <span>Logout</span>
+                  </Button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </header>

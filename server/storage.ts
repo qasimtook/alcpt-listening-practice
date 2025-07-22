@@ -1,10 +1,15 @@
-import { tests, questions, userProgress, type Test, type InsertTest, type Question, type InsertQuestion, type UserProgress, type InsertUserProgress } from "@shared/schema";
+import { tests, questions, userProgress, users, type Test, type InsertTest, type Question, type InsertQuestion, type UserProgress, type InsertUserProgress, type User, type UpsertUser } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 import * as fs from "fs";
 import * as path from "path";
 
 export interface IStorage {
+  // User operations
+  // (IMPORTANT) these user operations are mandatory for Replit Auth.
+  getUser(id: string): Promise<User | undefined>;
+  upsertUser(user: UpsertUser): Promise<User>;
+  
   // Test operations
   getAllTests(): Promise<Test[]>;
   getTestById(id: number): Promise<Test | undefined>;
@@ -21,6 +26,7 @@ export interface IStorage {
   // User progress operations
   saveUserProgress(progress: InsertUserProgress): Promise<UserProgress>;
   getUserProgressByTest(testId: number): Promise<UserProgress[]>;
+  getUserProgressByUser(userId: string): Promise<UserProgress[]>;
   
   // JSON file operations
   loadQuestionsFromFile(filePath: string): Promise<void>;
@@ -181,6 +187,28 @@ export class MemStorage implements IStorage {
 
 // Database Storage implementation
 export class DatabaseStorage implements IStorage {
+  // User operations
+  // (IMPORTANT) these user operations are mandatory for Replit Auth.
+
+  async getUser(id: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user;
+  }
+
+  async upsertUser(userData: UpsertUser): Promise<User> {
+    const [user] = await db
+      .insert(users)
+      .values(userData)
+      .onConflictDoUpdate({
+        target: users.id,
+        set: {
+          ...userData,
+          updatedAt: new Date(),
+        },
+      })
+      .returning();
+    return user;
+  }
   async getAllTests(): Promise<Test[]> {
     return await db.select().from(tests);
   }
@@ -254,6 +282,10 @@ export class DatabaseStorage implements IStorage {
 
   async getUserProgressByTest(testId: number): Promise<UserProgress[]> {
     return await db.select().from(userProgress).where(eq(userProgress.testId, testId));
+  }
+
+  async getUserProgressByUser(userId: string): Promise<UserProgress[]> {
+    return await db.select().from(userProgress).where(eq(userProgress.userId, userId));
   }
 
   async loadQuestionsFromFile(filePath: string): Promise<void> {
