@@ -1,0 +1,47 @@
+The user wants more general, high-level instructions without specific implementation details like column names, file paths, or code snippets. They want a conceptual approach that the Replit agent can interpret and implement in its own way.
+
+Looking at your ALCPT application, here's the recommended optimization approach:
+
+**Recommended Implementation Order:**
+1. **Audio caching** - Highest cost savings
+2. **AI-generated content caching** - Second highest cost savings  
+3. **Skip audio for non-listening questions** - Quick performance win
+
+## Step 1: Implement Audio Caching
+
+**Goal:** Generate audio only once per question and reuse it
+
+**Instructions:**
+- Modify the database to track whether audio has been generated for each question
+- Create a permanent storage system for audio files
+- Before generating new audio, check if it already exists
+- If audio exists, serve the cached version
+- If not, generate it once and save permanently
+- Ensure audio files are organized and easily retrievable
+
+## Step 2: Cache AI-Generated Content
+
+**Goal:** Store formatted questions and Arabic explanations permanently
+
+**Instructions:**
+- Extend the database to store processed question content and explanations
+- Before calling AI services, check if processed content already exists
+- If cached content exists, use it directly
+- If not, process once and store the results
+- Consider adding capability to regenerate content if needed
+
+## Step 3: Optimize Question Types
+
+**Goal:** Only generate audio for listening comprehension questions
+
+**Instructions:**
+- Implement logic to identify question types based on their position in the test
+- Skip audio generation entirely for reading and grammar questions
+- Adjust the user interface to show audio controls only when relevant
+- Ensure the system handles questions without audio gracefully
+
+**General Benefits:**
+- Dramatic reduction in API costs
+- Much faster response times for users
+- More reliable service (less dependent on external APIs)
+- Better scalability as user base grows

@@ -48,25 +48,36 @@ export default function QuestionPage() {
     enabled: true,
   });
 
-  // Generate audio for question
+  // Generate audio for question (only for listening questions 1-66)
   const generateAudioMutation = useMutation({
     mutationFn: async (questionId: number) => {
       const response = await fetch(`/api/questions/${questionId}/audio`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
       });
-      if (!response.ok) throw new Error("Failed to generate audio");
+      if (!response.ok) {
+        const errorData = await response.json();
+        if (errorData.isListeningQuestion === false) {
+          // This is a reading/grammar question, no audio needed
+          return { audioUrl: null, isListeningQuestion: false };
+        }
+        throw new Error(errorData.message || "Failed to generate audio");
+      }
       return response.json();
     },
     onSuccess: (data) => {
-      setAudioUrl(data.audioUrl);
+      if (data.audioUrl) {
+        setAudioUrl(data.audioUrl);
+      }
     },
-    onError: () => {
-      toast({
-        title: "Audio Error",
-        description: "Failed to generate audio. Please try again.",
-        variant: "destructive",
-      });
+    onError: (error: Error) => {
+      if (!error.message.includes("reading/grammar")) {
+        toast({
+          title: "Audio Error",
+          description: "Failed to generate audio. Please try again.",
+          variant: "destructive",
+        });
+      }
     },
   });
 
@@ -93,12 +104,16 @@ export default function QuestionPage() {
     },
   });
 
-  // Generate audio when question loads
+  // Generate audio when question loads (only for listening questions 1-66)
   useEffect(() => {
-    if (question && !question.audioUrl) {
-      generateAudioMutation.mutate(question.id);
-    } else if (question?.audioUrl) {
-      setAudioUrl(question.audioUrl);
+    if (question) {
+      const isListeningQuestion = question.questionIndex <= 66;
+      
+      if (isListeningQuestion && !question.audioUrl) {
+        generateAudioMutation.mutate(question.id);
+      } else if (question?.audioUrl) {
+        setAudioUrl(question.audioUrl);
+      }
     }
   }, [question]);
 

@@ -45,10 +45,11 @@ Preferred communication style: Simple, everyday language.
 - **Test Coverage**: 6 complete tests (065-070) with 583 total questions
 
 ### Audio Generation System
-- **Text-to-Speech**: OpenAI TTS API for generating audio from question text
-- **Audio Management**: Temporary file storage with cleanup mechanisms
+- **Text-to-Speech**: OpenAI TTS API for generating audio from question text (alloy voice)
+- **Audio Management**: Permanent storage system with caching for optimal performance
 - **Audio Player**: Custom React component with playback controls and speed adjustment
 - **Audio Scope**: Applied only to listening questions (1-66)
+- **Performance**: Audio files generated once and cached permanently to reduce API costs
 
 ### Question Processing
 - **Content Formatting**: Google Gemini AI for cleaning and formatting question data
