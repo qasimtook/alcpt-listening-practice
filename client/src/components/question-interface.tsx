@@ -167,6 +167,49 @@ export default function QuestionInterface({
             <h4 className="font-medium text-foreground mb-2">Explanation:</h4>
             <p className="text-foreground">{feedback.explanation}</p>
           </div>
+
+          {/* Arabic Explanation */}
+          {feedback.arabicExplanation && (
+            <div className="bg-green-50 rounded-lg p-4 mt-4" dir="rtl">
+              <h4 className="font-medium text-foreground mb-3 text-right">الشرح باللغة العربية:</h4>
+              <div className="space-y-4 text-right">
+                <div>
+                  <h5 className="font-semibold text-green-800 mb-2">الإجابة الصحيحة:</h5>
+                  <p className="text-green-700">{feedback.arabicExplanation.الإجابة_الصحيحة}</p>
+                </div>
+                
+                <div>
+                  <h5 className="font-semibold text-green-800 mb-2">شرح الإجابة الصحيحة:</h5>
+                  <div className="bg-white rounded p-3 text-green-700">
+                    <p className="font-medium">{feedback.arabicExplanation.شرح_الإجابة_الصحيحة?.السبب_الرئيسي}</p>
+                    <p className="mt-2 text-sm">{feedback.arabicExplanation.شرح_الإجابة_الصحيحة?.الدليل_من_السؤال}</p>
+                  </div>
+                </div>
+
+                <div>
+                  <h5 className="font-semibold text-green-800 mb-2">تحليل الخيارات الخاطئة:</h5>
+                  <div className="space-y-2">
+                    {feedback.arabicExplanation.تحليل_الخيارات_الخاطئة && Object.entries(feedback.arabicExplanation.تحليل_الخيارات_الخاطئة).map(([key, option]: [string, any]) => (
+                      <div key={key} className="bg-red-50 rounded p-2 text-sm">
+                        <span className="font-medium text-red-700">{option.الخيار}:</span>
+                        <span className="text-red-600 mr-2">{option.سبب_الخطأ}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h5 className="font-semibold text-green-800 mb-2">القاعدة اللغوية:</h5>
+                  <p className="bg-blue-50 rounded p-3 text-blue-700">{feedback.arabicExplanation.القاعدة_اللغوية}</p>
+                </div>
+
+                <div>
+                  <h5 className="font-semibold text-green-800 mb-2">نصيحة للطالب:</h5>
+                  <p className="bg-yellow-50 rounded p-3 text-yellow-700">{feedback.arabicExplanation.نصيحة_للطالب}</p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </Card>

@@ -4,6 +4,7 @@ import { storage } from "./storage";
 import { setupAuth, isAuthenticated } from "./replitAuth";
 import { generateAudioFromText } from "./services/openai";
 import { formatQuestionText, generateQuestionExplanation } from "./services/gemini";
+import { generateArabicExplanation } from "./arabicExplanation";
 import { answerSubmissionSchema } from "@shared/schema";
 import * as fs from "fs";
 import * as path from "path";
@@ -166,6 +167,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
         );
       }
 
+      // Generate Arabic explanation
+      let arabicExplanation = question.arabicExplanation;
+      if (!arabicExplanation) {
+        try {
+          arabicExplanation = await generateArabicExplanation(question);
+          // Update question with Arabic explanation
+          await storage.updateQuestionArabicExplanation(question.id, arabicExplanation);
+        } catch (error) {
+          console.error("Failed to generate Arabic explanation:", error);
+          // Continue without Arabic explanation rather than failing the request
+        }
+      }
+
       // Save user progress
       const userId = req.user.claims.sub;
       await storage.saveUserProgress({
@@ -181,6 +195,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         isCorrect,
         correctAnswer: question.correctAnswer,
         explanation,
+        arabicExplanation,
         selectedAnswer: submission.selectedAnswer,
       };
 

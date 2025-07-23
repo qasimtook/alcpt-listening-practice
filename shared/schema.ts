@@ -75,7 +75,6 @@ export type User = typeof users.$inferSelect;
 export type Test = typeof tests.$inferSelect;
 export type Question = typeof questions.$inferSelect;
 export type InsertTest = z.infer<typeof insertTestSchema>;
-export type Question = typeof questions.$inferSelect;
 export type InsertQuestion = z.infer<typeof insertQuestionSchema>;
 export type UserProgress = typeof userProgress.$inferSelect;
 export type InsertUserProgress = z.infer<typeof insertUserProgressSchema>;
@@ -90,6 +89,7 @@ export const feedbackResponseSchema = z.object({
   isCorrect: z.boolean(),
   correctAnswer: z.string(),
   explanation: z.string(),
+  arabicExplanation: z.any().optional(),
   selectedAnswer: z.string(),
 });
 

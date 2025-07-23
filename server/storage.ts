@@ -22,6 +22,7 @@ export interface IStorage {
   getRandomQuestion(testId?: number): Promise<Question | undefined>;
   createQuestion(question: InsertQuestion): Promise<Question>;
   updateQuestionAudio(id: number, audioUrl: string): Promise<Question | undefined>;
+  updateQuestionArabicExplanation(id: number, arabicExplanation: any): Promise<Question | undefined>;
   
   // User progress operations
   saveUserProgress(progress: InsertUserProgress): Promise<UserProgress>;
@@ -272,6 +273,15 @@ export class DatabaseStorage implements IStorage {
     return updatedQuestion || undefined;
   }
 
+  async updateQuestionArabicExplanation(id: number, arabicExplanation: any): Promise<Question | undefined> {
+    const [updatedQuestion] = await db
+      .update(questions)
+      .set({ arabicExplanation })
+      .where(eq(questions.id, id))
+      .returning();
+    return updatedQuestion || undefined;
+  }
+
   async saveUserProgress(insertProgress: InsertUserProgress): Promise<UserProgress> {
     const [progress] = await db
       .insert(userProgress)
@@ -324,6 +334,7 @@ export class DatabaseStorage implements IStorage {
           correctAnswer: questionData.correct_answer,
           otherOptions: questionData.other_options,
           explanation: questionData.explanation || null,
+          arabicExplanation: null,
           audioUrl: null,
         };
         
