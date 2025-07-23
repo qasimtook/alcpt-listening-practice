@@ -14,8 +14,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Auth middleware
   await setupAuth(app);
 
-  // Serve audio files
-  app.use('/api/audio', express.static(path.join(process.cwd(), 'temp_audio')));
+  // Serve audio files from permanent storage
+  app.use('/api/audio', express.static(path.join(process.cwd(), 'audio_storage'), {
+    maxAge: '1d', // Cache for 1 day
+    setHeaders: (res) => {
+      res.set('Cache-Control', 'public, max-age=86400');
+    }
+  }));
 
   // Auth routes
   app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {
@@ -121,17 +126,31 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(404).json({ message: "Question not found" });
       }
 
-      if (question.audioUrl) {
-        // Audio already exists
-        return res.json({ audioUrl: question.audioUrl });
+      // Check if this is a listening question (1-66)
+      if (question.questionIndex > 66) {
+        return res.status(400).json({ 
+          message: "Audio not available for reading/grammar questions",
+          isListeningQuestion: false 
+        });
       }
 
-      // Generate audio
-      const { audioPath } = await generateAudioFromText(question.questionText);
-      const filename = path.basename(audioPath);
-      const audioUrl = `/api/audio/${filename}`;
+      // Check if audio URL already exists in database
+      if (question.audioUrl) {
+        // Verify the audio file still exists on disk
+        const audioFilename = path.basename(question.audioUrl);
+        const audioPath = path.join(process.cwd(), "audio_storage", audioFilename);
+        
+        if (fs.existsSync(audioPath)) {
+          return res.json({ audioUrl: question.audioUrl });
+        } else {
+          console.log(`Audio file missing for question ${questionId}, will regenerate`);
+        }
+      }
+
+      // Generate audio with permanent storage
+      const { audioUrl } = await generateAudioFromText(question.questionText, questionId);
       
-      // Update question with audio URL
+      // Update question with audio URL in database
       await storage.updateQuestionAudio(questionId, audioUrl);
       
       res.json({ audioUrl });

@@ -35,22 +35,32 @@ export default function QuestionInterface({
 
   return (
     <Card className="shadow-material-lg mb-6">
-      {/* Audio Section */}
+      {/* Question Header */}
       <div className="p-6 border-b border-border">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-medium text-foreground">
             Question {question.questionIndex}
           </h2>
-          <span className="px-3 py-1 bg-blue-100 text-primary text-sm font-medium rounded-full">
-            Listening
+          <span className={`px-3 py-1 text-sm font-medium rounded-full ${
+            question.questionIndex <= 66 
+              ? "bg-blue-100 text-blue-700" 
+              : "bg-green-100 text-green-700"
+          }`}>
+            {question.questionIndex <= 66 ? "Listening" : "Reading & Grammar"}
           </span>
         </div>
         
-        {/* Audio Player */}
-        <AudioPlayer audioUrl={audioUrl} isLoading={isGeneratingAudio} />
+        {/* Audio Player for Listening Questions (1-66) */}
+        {question.questionIndex <= 66 && (
+          <div className="mb-4">
+            <AudioPlayer audioUrl={audioUrl} isLoading={isGeneratingAudio} />
+          </div>
+        )}
         
         {/* Question Text */}
-        <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+        <div className={`p-4 rounded-lg ${
+          question.questionIndex <= 66 ? "bg-blue-50" : "bg-green-50"
+        }`}>
           <p className="text-foreground font-medium">{question.questionText}</p>
         </div>
       </div>
@@ -119,16 +129,18 @@ export default function QuestionInterface({
               </>
             )}
           </Button>
-          <Button
-            variant="outline"
-            onClick={() => {
-              // Replay audio functionality would go here
-              console.log("Replay audio");
-            }}
-          >
-            <RotateCcw className="mr-2 h-4 w-4" />
-            Replay Audio
-          </Button>
+          {question.questionIndex <= 66 && (
+            <Button
+              variant="outline"
+              onClick={() => {
+                // Replay audio functionality would go here
+                console.log("Replay audio");
+              }}
+            >
+              <RotateCcw className="mr-2 h-4 w-4" />
+              Replay Audio
+            </Button>
+          )}
         </div>
       </div>
 

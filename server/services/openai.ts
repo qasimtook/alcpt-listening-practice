@@ -8,12 +8,30 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY_ENV_VAR || ""
 });
 
-export async function generateAudioFromText(text: string): Promise<{ audioPath: string; cleanup: () => void }> {
+export async function generateAudioFromText(text: string, questionId: number): Promise<{ audioPath: string; audioUrl: string }> {
   try {
     if (!openai.apiKey) {
       throw new Error("OpenAI API key not configured");
     }
 
+    // Create permanent audio storage directory
+    const audioDir = path.join(process.cwd(), "audio_storage");
+    if (!fs.existsSync(audioDir)) {
+      fs.mkdirSync(audioDir, { recursive: true });
+    }
+
+    // Generate consistent filename based on question ID
+    const filename = `question_${questionId}.mp3`;
+    const audioPath = path.join(audioDir, filename);
+    const audioUrl = `/api/audio/${filename}`;
+
+    // Check if audio file already exists
+    if (fs.existsSync(audioPath)) {
+      console.log(`Audio file already exists for question ${questionId}, reusing cached version`);
+      return { audioPath, audioUrl };
+    }
+
+    console.log(`Generating new audio for question ${questionId}`);
     const response = await openai.audio.speech.create({
       model: "tts-1",
       voice: "alloy",
@@ -21,32 +39,12 @@ export async function generateAudioFromText(text: string): Promise<{ audioPath: 
       response_format: "mp3",
     });
 
-    // Create temporary file
-    const audioDir = path.join(process.cwd(), "temp_audio");
-    if (!fs.existsSync(audioDir)) {
-      fs.mkdirSync(audioDir, { recursive: true });
-    }
-
-    const filename = `${uuidv4()}.mp3`;
-    const audioPath = path.join(audioDir, filename);
-
-    // Convert response to buffer and save
+    // Convert response to buffer and save permanently
     const buffer = Buffer.from(await response.arrayBuffer());
     fs.writeFileSync(audioPath, buffer);
 
-    // Return path and cleanup function
-    return {
-      audioPath,
-      cleanup: () => {
-        try {
-          if (fs.existsSync(audioPath)) {
-            fs.unlinkSync(audioPath);
-          }
-        } catch (error) {
-          console.error("Error cleaning up audio file:", error);
-        }
-      }
-    };
+    console.log(`Audio generated and saved: ${audioPath}`);
+    return { audioPath, audioUrl };
   } catch (error) {
     console.error("Error generating audio:", error);
     throw new Error(`Failed to generate audio: ${error instanceof Error ? error.message : 'Unknown error'}`);
