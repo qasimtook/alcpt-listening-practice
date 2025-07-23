@@ -20,6 +20,7 @@ export const questions = pgTable("questions", {
   correctAnswer: text("correct_answer").notNull(),
   otherOptions: json("other_options").$type<string[]>().notNull(),
   explanation: text("explanation"),
+  arabicExplanation: json("arabic_explanation"),
   audioUrl: text("audio_url"),
 });
 
@@ -72,6 +73,7 @@ export const insertUserProgressSchema = createInsertSchema(userProgress).omit({
 export type UpsertUser = typeof users.$inferInsert;
 export type User = typeof users.$inferSelect;
 export type Test = typeof tests.$inferSelect;
+export type Question = typeof questions.$inferSelect;
 export type InsertTest = z.infer<typeof insertTestSchema>;
 export type Question = typeof questions.$inferSelect;
 export type InsertQuestion = z.infer<typeof insertQuestionSchema>;
