@@ -162,12 +162,6 @@ export default function QuestionInterface({
             </div>
           </div>
 
-          {/* Explanation */}
-          <div className="bg-blue-50 rounded-lg p-4">
-            <h4 className="font-medium text-foreground mb-2">Explanation:</h4>
-            <p className="text-foreground">{feedback.explanation}</p>
-          </div>
-
           {/* Arabic Explanation */}
           {feedback.arabicExplanation && (
             <div className="bg-green-50 rounded-lg p-4 mt-4" dir="rtl">
