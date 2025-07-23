@@ -88,7 +88,6 @@ export const answerSubmissionSchema = z.object({
 export const feedbackResponseSchema = z.object({
   isCorrect: z.boolean(),
   correctAnswer: z.string(),
-  explanation: z.string(),
   arabicExplanation: z.any().optional(),
   selectedAnswer: z.string(),
 });

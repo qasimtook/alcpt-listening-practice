@@ -3,7 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { setupAuth, isAuthenticated } from "./replitAuth";
 import { generateAudioFromText } from "./services/openai";
-import { formatQuestionText, generateQuestionExplanation } from "./services/gemini";
+import { formatQuestionText } from "./services/gemini";
 import { generateArabicExplanation } from "./arabicExplanation";
 import { answerSubmissionSchema } from "@shared/schema";
 import * as fs from "fs";
@@ -177,14 +177,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       const isCorrect = submission.selectedAnswer === question.correctAnswer;
       
-      // Generate explanation if not available
-      let explanation = question.explanation;
-      if (!explanation) {
-        explanation = await generateQuestionExplanation(
-          question.questionText, 
-          question.correctAnswer
-        );
-      }
+
 
       // Generate Arabic explanation
       let arabicExplanation = question.arabicExplanation;
@@ -213,7 +206,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const feedback = {
         isCorrect,
         correctAnswer: question.correctAnswer,
-        explanation,
         arabicExplanation,
         selectedAnswer: submission.selectedAnswer,
       };
