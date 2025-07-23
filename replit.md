@@ -56,6 +56,7 @@ Preferred communication style: Simple, everyday language.
 - **Arabic Explanation Generation**: AI-powered Arabic-only explanations for all questions
 - **Answer Validation**: Server-side validation of user responses
 - **Question Types**: Automatic categorization based on question index (listening vs reading/grammar)
+- **Performance**: Eliminated English explanations to reduce API costs by ~33%
 
 ### User Interface Components
 - **Audio Player**: Full-featured player with volume, speed, and progress controls (listening questions only)
@@ -64,6 +65,7 @@ Preferred communication style: Simple, everyday language.
 - **Progress Tracking**: Visual feedback and performance analytics
 - **Help System**: Integrated help modal with usage instructions
 - **Test Navigation**: Clear test identification (Test XXX - Question YY format)
+- **Question Type Badges**: Visual indicators (blue for listening, green for reading/grammar)
 
 ## Data Flow
 
