@@ -39,21 +39,30 @@ Preferred communication style: Simple, everyday language.
 - **Questions Table**: Contains question content, answers, explanations, and audio URLs
 - **User Progress Table**: Tracks user answers and performance metrics
 
+### ALCPT Test Structure
+- **Listening Questions**: Questions 1-66 (require audio generation and playback)
+- **Reading/Grammar Questions**: Questions 67+ (text-based, no audio needed)
+- **Test Coverage**: 6 complete tests (065-070) with 583 total questions
+
 ### Audio Generation System
 - **Text-to-Speech**: OpenAI TTS API for generating audio from question text
 - **Audio Management**: Temporary file storage with cleanup mechanisms
 - **Audio Player**: Custom React component with playback controls and speed adjustment
+- **Audio Scope**: Applied only to listening questions (1-66)
 
 ### Question Processing
 - **Content Formatting**: Google Gemini AI for cleaning and formatting question data
-- **Explanation Generation**: AI-powered explanations for correct answers
+- **Arabic Explanation Generation**: AI-powered Arabic-only explanations for all questions
 - **Answer Validation**: Server-side validation of user responses
+- **Question Types**: Automatic categorization based on question index (listening vs reading/grammar)
 
 ### User Interface Components
-- **Audio Player**: Full-featured player with volume, speed, and progress controls
+- **Audio Player**: Full-featured player with volume, speed, and progress controls (listening questions only)
 - **Question Interface**: Interactive question display with multiple choice options
+- **Arabic Explanations**: Comprehensive Arabic-only feedback system with structured explanations
 - **Progress Tracking**: Visual feedback and performance analytics
 - **Help System**: Integrated help modal with usage instructions
+- **Test Navigation**: Clear test identification (Test XXX - Question YY format)
 
 ## Data Flow
 
