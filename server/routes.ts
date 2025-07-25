@@ -3,7 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { setupAuth, isAuthenticated } from "./replitAuth";
 import { generateAudioFromText } from "./services/openai";
-import { formatQuestionText } from "./services/gemini";
+import { formatQuestionText, parseBulkQuestionText } from "./services/gemini";
 import { generateArabicExplanation } from "./arabicExplanation";
 import { answerSubmissionSchema } from "@shared/schema";
 import * as fs from "fs";
@@ -226,6 +226,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Error formatting question:", error);
       res.status(500).json({ message: "Failed to format question" });
+    }
+  });
+
+  // Parse bulk question text using Gemini
+  app.post("/api/parse-bulk-questions", async (req, res) => {
+    try {
+      const { bulkText } = req.body;
+      if (!bulkText || typeof bulkText !== 'string') {
+        return res.status(400).json({ message: "bulkText is required and must be a string" });
+      }
+      
+      const parsedQuestions = await parseBulkQuestionText(bulkText);
+      res.json({ 
+        message: `Successfully parsed ${parsedQuestions.length} questions`,
+        questions: parsedQuestions 
+      });
+    } catch (error) {
+      console.error("Error parsing bulk questions:", error);
+      res.status(500).json({ message: "Failed to parse bulk questions" });
     }
   });
 
