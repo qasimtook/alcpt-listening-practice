@@ -50,6 +50,7 @@ Preferred communication style: Simple, everyday language.
 - **Audio Player**: Custom React component with playback controls and speed adjustment
 - **Audio Scope**: Applied only to listening questions (1-66)
 - **Performance**: Audio files generated once and cached permanently to reduce API costs
+- **Background Processing**: Intelligent queue system for batch audio generation with rate limiting
 
 ### Question Processing
 - **Content Formatting**: Google Gemini AI for cleaning and formatting question data
@@ -57,6 +58,8 @@ Preferred communication style: Simple, everyday language.
 - **Answer Validation**: Server-side validation of user responses
 - **Question Types**: Automatic categorization based on question index (listening vs reading/grammar)
 - **Performance**: Eliminated English explanations to reduce API costs by ~33%
+- **Background Processing**: Automated queue system for generating missing Arabic explanations
+- **Batch Optimization**: Smart rate-limited processing with cost estimation and monitoring
 
 ### User Interface Components
 - **Audio Player**: Full-featured player with volume, speed, and progress controls (listening questions only)

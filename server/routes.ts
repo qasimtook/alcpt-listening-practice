@@ -5,6 +5,8 @@ import { setupAuth, isAuthenticated } from "./replitAuth";
 import { generateAudioFromText } from "./services/openai";
 import { formatQuestionText, parseBulkQuestionText } from "./services/gemini";
 import { generateArabicExplanation } from "./arabicExplanation";
+import { backgroundProcessor } from "./services/backgroundProcessor";
+import { batchOptimizer } from "./services/batchOptimizer";
 import { answerSubmissionSchema } from "@shared/schema";
 import * as fs from "fs";
 import * as path from "path";
@@ -179,16 +181,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
 
 
-      // Generate Arabic explanation
+      // Generate Arabic explanation (optimized)
       let arabicExplanation = question.arabicExplanation;
       if (!arabicExplanation) {
         try {
+          // Try to generate immediately for better UX
           arabicExplanation = await generateArabicExplanation(question);
           // Update question with Arabic explanation
           await storage.updateQuestionArabicExplanation(question.id, arabicExplanation);
         } catch (error) {
           console.error("Failed to generate Arabic explanation:", error);
-          // Continue without Arabic explanation rather than failing the request
+          // Add to background queue for retry
+          backgroundProcessor.addJob('arabic_explanation', {
+            questionId: question.id,
+            priority: 'high'
+          });
         }
       }
 
@@ -294,6 +301,155 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Error fetching user progress:", error);
       res.status(500).json({ message: "Failed to fetch user progress" });
+    }
+  });
+
+  // Background processing endpoints
+  app.post("/api/background/pre-generate-arabic", async (req, res) => {
+    try {
+      const { testId } = req.body;
+      const stats = await backgroundProcessor.preGenerateArabicExplanations(testId);
+      res.json({
+        message: "Arabic explanation pre-generation started",
+        ...stats
+      });
+    } catch (error) {
+      console.error("Error starting Arabic pre-generation:", error);
+      res.status(500).json({ message: "Failed to start Arabic pre-generation" });
+    }
+  });
+
+  app.post("/api/background/pre-generate-audio", async (req, res) => {
+    try {
+      const { testId } = req.body;
+      const stats = await backgroundProcessor.preGenerateAudio(testId);
+      res.json({
+        message: "Audio pre-generation started",
+        ...stats
+      });
+    } catch (error) {
+      console.error("Error starting audio pre-generation:", error);
+      res.status(500).json({ message: "Failed to start audio pre-generation" });
+    }
+  });
+
+  app.post("/api/background/batch-process", async (req, res) => {
+    try {
+      const { testId } = req.body;
+      if (!testId) {
+        return res.status(400).json({ message: "testId is required" });
+      }
+      
+      const jobId = backgroundProcessor.addJob('batch_process', {
+        testId,
+        priority: 'high'
+      });
+      
+      res.json({
+        message: "Batch processing started",
+        jobId
+      });
+    } catch (error) {
+      console.error("Error starting batch processing:", error);
+      res.status(500).json({ message: "Failed to start batch processing" });
+    }
+  });
+
+  app.get("/api/background/stats", async (req, res) => {
+    try {
+      const stats = backgroundProcessor.getStats();
+      res.json(stats);
+    } catch (error) {
+      console.error("Error getting background stats:", error);
+      res.status(500).json({ message: "Failed to get background stats" });
+    }
+  });
+
+  // Batch optimization endpoints
+  app.post("/api/optimize/batch-arabic", async (req, res) => {
+    try {
+      const { testId } = req.body;
+      let questions: Question[];
+      
+      if (testId) {
+        questions = await storage.getQuestionsByTestId(testId);
+      } else {
+        // Get all questions from all tests
+        const tests = await storage.getAllTests();
+        questions = [];
+        for (const test of tests) {
+          const testQuestions = await storage.getQuestionsByTestId(test.id);
+          questions.push(...testQuestions);
+        }
+      }
+
+      const result = await batchOptimizer.batchGenerateArabicExplanations(questions);
+      
+      res.json({
+        message: "Batch Arabic explanation generation completed",
+        ...result
+      });
+    } catch (error) {
+      console.error("Error in batch Arabic generation:", error);
+      res.status(500).json({ message: "Failed to complete batch Arabic generation" });
+    }
+  });
+
+  app.post("/api/optimize/batch-audio", async (req, res) => {
+    try {
+      const { testId } = req.body;
+      let questions: Question[];
+      
+      if (testId) {
+        questions = await storage.getQuestionsByTestId(testId);
+      } else {
+        // Get all questions from all tests
+        const tests = await storage.getAllTests();
+        questions = [];
+        for (const test of tests) {
+          const testQuestions = await storage.getQuestionsByTestId(test.id);
+          questions.push(...testQuestions);
+        }
+      }
+
+      const result = await batchOptimizer.batchGenerateAudio(questions);
+      
+      res.json({
+        message: "Batch audio generation completed",
+        ...result
+      });
+    } catch (error) {
+      console.error("Error in batch audio generation:", error);
+      res.status(500).json({ message: "Failed to complete batch audio generation" });
+    }
+  });
+
+  app.get("/api/optimize/cost-estimate", async (req, res) => {
+    try {
+      const { testId } = req.query;
+      let questions: Question[];
+      
+      if (testId) {
+        questions = await storage.getQuestionsByTestId(Number(testId));
+      } else {
+        // Get all questions from all tests
+        const tests = await storage.getAllTests();
+        questions = [];
+        for (const test of tests) {
+          const testQuestions = await storage.getQuestionsByTestId(test.id);
+          questions.push(...testQuestions);
+        }
+      }
+
+      const costEstimate = batchOptimizer.estimateCosts(questions);
+      
+      res.json({
+        message: "Cost estimate calculated",
+        ...costEstimate
+      });
+    } catch (error) {
+      console.error("Error calculating cost estimate:", error);
+      res.status(500).json({ message: "Failed to calculate cost estimate" });
     }
   });
 

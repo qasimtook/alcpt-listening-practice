@@ -8,7 +8,7 @@ A comprehensive web application for ALCPT (American Language Course Placement Te
 - **6 Complete ALCPT Tests**: Tests 065-070 with 583 total questions
 - **Intelligent Question Types**: Automatic detection of listening (1-66) vs reading/grammar (67+) questions
 - **AI-Powered Audio**: OpenAI TTS with "alloy" voice for natural speech generation
-- **Arabic Explanations**: Comprehensive Arabic-only feedback system powered by Google Gemini AI
+- **Arabic Explanations**: Comprehensive Arabic-only feedback 0⁹90system powered by Google Gemini AI
 - **Progress Tracking**: User performance analytics and learning insights
 
 ### Performance Optimizations
