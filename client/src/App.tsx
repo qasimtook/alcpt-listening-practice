@@ -1,38 +1,33 @@
-import React from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from './components/theme-provider';
-import { Toaster } from './components/ui/toaster';
-import HomePage from './pages/HomePage';
-import TestPage from './pages/TestPage';
-import ResultsPage from './pages/ResultsPage';
-import ProfilePage from './pages/ProfilePage';
+import { Switch, Route } from "wouter";
+import { queryClient } from "./lib/queryClient";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "@/components/ui/toaster";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import NotFound from "@/pages/not-found";
+import Home from "@/pages/home";
+import TestSelection from "@/pages/test-selection";
+import Question from "@/pages/question";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 5 * 60 * 1000, // 5 minutes
-      cacheTime: 10 * 60 * 1000, // 10 minutes
-    },
-  },
-});
+function Router() {
+  return (
+    <Switch>
+      <Route path="/" component={Home} />
+      <Route path="/tests" component={TestSelection} />
+      <Route path="/tests/:testId" component={TestSelection} />
+      <Route path="/question" component={Question} />
+      <Route path="/question/:questionId" component={Question} />
+      <Route component={NotFound} />
+    </Switch>
+  );
+}
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="light" storageKey="alcpt-theme">
-        <Router>
-          <div className="min-h-screen bg-background">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/test/:testId" element={<TestPage />} />
-              <Route path="/results/:testId" element={<ResultsPage />} />
-              <Route path="/profile" element={<ProfilePage />} />
-            </Routes>
-          </div>
-          <Toaster />
-        </Router>
-      </ThemeProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Router />
+      </TooltipProvider>
     </QueryClientProvider>
   );
 }
